@@ -2065,7 +2065,7 @@ MYDOCUMENTFILES="COPYING ChangeLog doc tokyocabinet.idl"
 MYPCFILES="tokyocabinet.pc"
 
 # Building flags
-MYCFLAGS="-std=c99 -Wall -fPIC -fsigned-char -O2"
+MYCFLAGS="-std=gnu99 -Wall -fPIC -fsigned-char -O2"
 MYCPPFLAGS="-I. -I\$(INCLUDEDIR) -I$HOME/include -I/usr/local/include"
 MYCPPFLAGS="$MYCPPFLAGS -DNDEBUG -D_GNU_SOURCE=1 -D_REENTRANT -D__EXTENSIONS__"
 MYLDFLAGS="-L. -L\$(LIBDIR) -L$HOME/lib -L/usr/local/lib"
@@ -2101,7 +2101,7 @@ fi
 
 if test "$enable_debug" = "yes"
 then
-  MYCFLAGS="-std=c99 -Wall -fPIC -pedantic -fsigned-char -g -O0"
+  MYCFLAGS="-std=gnu99 -Wall -fPIC -pedantic -fsigned-char -g -O0"
   MYCPPFLAGS="$MYCPPFLAGS -UNDEBUG"
   MYCMDLDFLAGS="$MYCMDLDFLAGS -static"
   enables="$enables (debug)"
@@ -2115,7 +2115,7 @@ fi
 
 if test "$enable_devel" = "yes"
 then
-  MYCFLAGS="-std=c99 -Wall -fPIC -pedantic -fsigned-char -g -O2 -pipe"
+  MYCFLAGS="-std=gnu99 -Wall -fPIC -pedantic -fsigned-char -g -O2 -pipe"
   MYCPPFLAGS="$MYCPPFLAGS -UNDEBUG"
   enables="$enables (devel)"
 fi
@@ -2128,7 +2128,7 @@ fi
 
 if test "$enable_profile" = "yes"
 then
-  MYCFLAGS="-std=c99 -Wall -fPIC -pedantic -fsigned-char -g -pg -O2 -pipe"
+  MYCFLAGS="-std=gnu99 -Wall -fPIC -pedantic -fsigned-char -g -pg -O2 -pipe"
   enables="$enables (profile)"
 fi
 
@@ -2153,7 +2153,7 @@ fi
 if test "$enable_fastest" = "yes"
 then
   MYLIBOBJFILES="tokyocabinet_all.o"
-  MYCFLAGS="-std=c99 -Wall -fPIC -pedantic -fsigned-char -O3"
+  MYCFLAGS="-std=gnu99 -Wall -fPIC -pedantic -fsigned-char -O3"
   MYCFLAGS="$MYCFLAGS -fomit-frame-pointer -fforce-addr -minline-all-stringops"
   MYCPPFLAGS="$MYCPPFLAGS -D_MYFASTEST"
   enables="$enables (fastest)"
